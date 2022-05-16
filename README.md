@@ -13,17 +13,17 @@ This outputs a pickle model in a file named `model.pkl`.
 
 ## 2. Build a docker image containing Flask and the model
 
-Construct an image (`docker build`) called rafalkaliszczuk/sklearn-flask-docker (`--tag rafalkaliszczuk/sklearn-flask-docker`) from the Dockerfile (`.`).
+Construct an image (`docker build`) called imarekkus/peceptron (`--tag imarekkus/peceptron`) from the Dockerfile (`.`).
 
 The construction of this image is defined by `Dockerfile`.
 
-`docker build --tag rafalkaliszczuk/sklearn-flask-docker .`
+`docker build --tag imarekkus/perceptron .`
 
 ## 3. Create a container from the Docker Image
 
-Create and start (`docker run`) a detached (`-d`) Docker container called sklearn-flask-docker (`--name sklearn-flask-docker`) from the image `rafalkaliszczuk/sklearn-flask-docker:latest` where port of the host machine is connected to port 5001 of the Docker container.
+Create and start (`docker run`) a detached (`-d`) Docker container called sklearn-flask-docker (`--name sklearn-flask-docker`) from the image `imarekkus/perceptron:latest` where port of the host machine is connected to port 5001 of the Docker container.
 
-`docker run -d --name sklearn-flask-docker rafalkaliszczuk/sklearn-flask-docker:latest`
+`docker run -d --name sklearn-flask-docker imarekkus/perceptron:latest`
 
 ## 4. Query the prediction API with an example observation
 
