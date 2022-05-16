@@ -1,4 +1,4 @@
-# This file defines the Docker container that will contain the Flask app.
+# Z tego tworzy się obraz dockerowy
 
 # From the source image
 FROM python:3.6-slim
@@ -21,7 +21,7 @@ COPY api.py __init__.py /app/
 # to /app/ inside the container
 COPY model.pkl /app/
 
-# Expose the container's port 5001
+# Expose the container's port 3000
 EXPOSE 3000 
 
 # When the container starts, run this
