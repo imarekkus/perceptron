@@ -1,5 +1,5 @@
 
-# Tworzymy sieć i trenujemy ją
+# Tworzymy sieć i trenujemy ją:
 
 Do tego służy plik `python model.py` który tworzy plik `model.pkl`.
 
