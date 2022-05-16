@@ -22,7 +22,7 @@ COPY api.py __init__.py /app/
 COPY model.pkl /app/
 
 # Expose the container's port 5001
-EXPOSE 3000
+EXPOSE 3000 
 
 # When the container starts, run this
 ENTRYPOINT python ./api.py
