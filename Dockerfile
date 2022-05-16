@@ -23,6 +23,7 @@ COPY model.pkl /app/
 
 # Expose the container's port 3000
 EXPOSE 3000 
+EXPOSE 3333 
 
 # When the container starts, run this
 ENTRYPOINT python ./api.py
