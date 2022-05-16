@@ -1,13 +1,12 @@
-"""
-This file runs the Flask application we are using as an API endpoint.
-"""
+#Ładujemy moduły
 
 from flask import Flask, request, jsonify
 import pickle
 
-# Create a flask
+# Tworzymy flaska
 app = Flask(__name__)
 
+# Wklejamy klasę perceptronu bo inaczej nie odpala, a zaimportować też się nie dało
 class Perceptron:
     
     def __init__(self, eta=0.01, n_iter=10):
@@ -43,33 +42,31 @@ class Perceptron:
 
 perceptron = Perceptron()
 
-# Create an API end point
+# Tworzymy app
 @app.route('/')
 def home():
-    return "Hi, Welcome to Flask!!"
+    return "Hello, im supposed to return some predictions. Try with data in url link."
 
 @app.route('/predict', methods=['GET'])
 def predict():
 
-    # Getting features values e.g.
-    #/predict?sepal_length=4.5&sepal_width=2.3&petal_length=1.3&petal_width=0.3
+    # Ustalamy co przyjmuje
     sep_len = float(request.args.get('sepal_length'))
     sep_wid = float(request.args.get('sepal_width'))
     pet_len = float(request.args.get('petal_length'))
     pet_wid = float(request.args.get('petal_width'))
     
-    # The features of the observation to predict
     test_data = [sep_len, sep_wid, pet_len, pet_wid]
     
-    # Load pickled model file
+    # Ładujemy zapiklowany model
     perceptron_file = open('model.pkl', 'rb')
     perceptron = pickle.load(perceptron_file)
     perceptron_file.close()
     
-     # Predict the class using the model
+     # Predykcja wyniku
     prediction = int(perceptron.predict([test_data]))
 
-    # Return a json object containing the features and prediction
+    # Wyplucie na stronie predykcji
     return jsonify(features=test_data, predicted_class=prediction)
 
 if __name__ == "__main__":
