@@ -14,7 +14,7 @@ Na podstawie pliku `Dockerfile`. tworzymy obraz wpisując: `docker build --tag i
 
 # Tworzymy kontener dockerowy:
 
-Wpisując polecenie: `docker run -d --name sklearn imarekkus/perceptron:latest`
+Wpisując polecenie: `docker run -d --name perceptron imarekkus/perceptron:latest`
 
 # Sprawdzamy czy działa:
 
