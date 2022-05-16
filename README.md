@@ -38,7 +38,7 @@ Since our model is trained on the Iris dataset, we can test the API by queries i
 
 Paste this URL into your browser bar:
 
-http://localhost:5001/predict?sepal_length=1.5&sepal_width=2.3&petal_length=1.3&petal_width=0.3
+http://localhost:3000/predict?sepal_length=1.5&sepal_width=2.3&petal_length=1.3&petal_width=0.3
 
 In your browser you should see something like this:
 ```
