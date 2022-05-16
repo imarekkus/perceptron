@@ -1,3 +1,4 @@
+Ustawiamy ścieżkę gdzie zostały pobrane pliki
 
 # Tworzymy sieć i trenujemy ją:
 
@@ -5,7 +6,7 @@ Do tego służy plik `python model.py` który tworzy plik `model.pkl`.
 
 # Tworzymy obraz dockerowy:
 
-Na podstawie pliku `Dockerfile`. tworzymy obraz wpisując: `docker build --tag zadrta .` 
+Na podstawie pliku `Dockerfile`. Tworzymy obraz wpisując: `docker build --tag zadrta .` 
 
 # Tworzymy kontener dockerowy:
 
