@@ -3,8 +3,14 @@
 from flask import Flask, request, jsonify
 import pickle
 
+
+
+
 # Tworzymy flaska
 app = Flask(__name__)
+
+
+
 
 # Wklejamy klasę perceptronu bo inaczej nie odpala, a zaimportować też się nie dało
 class Perceptron:
@@ -42,10 +48,15 @@ class Perceptron:
 
 perceptron = Perceptron()
 
-# Tworzymy app
+
+
+# Tworzymy app. Jedna jest zwykła i wyświetla tylko teskt a druga wyświetla predykcje 
+
 @app.route('/')
 def home():
     return "Hello, im supposed to return some predictions. Try with data in url link."
+
+
 
 @app.route('/predict', methods=['GET'])
 def predict():
