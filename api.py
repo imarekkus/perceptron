@@ -38,5 +38,5 @@ def predict():
     return jsonify(features=test_data, predicted_class=prediction)
 
 if __name__ == "__main__":
-    # Run the app at port 5001
-    app.run(port=5001)
+    # Run the app at port 3000
+    app.run(port=3000)
