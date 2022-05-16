@@ -1,48 +1,32 @@
-# sklearn-flask-docker
-An example of deploying a sklearn model using Flask API and a Docker container.
 
-## Steps:
+# Tworzymy sieć i trenujemy ją
 
-## 1. Create and train the model
+Do tego służy plik `python model.py` który tworzy plik `model.pkl`.
 
-I am training a machine learning model using Iris training dataset. To train a new model, run this:
+# Tworzymy obraz dockerowy:
 
-`python model.py`
+Na podstawie pliku `Dockerfile`. tworzymy obraz wpisując: `docker build --tag imarekkus/perceptron .`
 
-This outputs a pickle model in a file named `model.pkl`.
+# Tworzymy kontener dockerowy:
 
-## 2. Build a docker image containing Flask and the model
+Wpisując polecenie: `docker run -d --name sklearn imarekkus/perceptron:latest`
 
-Construct an image (`docker build`) called imarekkus/peceptron (`--tag imarekkus/peceptron`) from the Dockerfile (`.`).
+# Sprawdzamy czy działa:
 
-The construction of this image is defined by `Dockerfile`.
+Wpisując `docker ps`
+![image](https://user-images.githubusercontent.com/49692939/168680654-73dc885b-348c-4a10-9c19-044c5157f58e.png)
 
-`docker build --tag imarekkus/perceptron .`
 
-## 3. Create a container from the Docker Image
+# Wchodzenie na stronę:
 
-Create and start (`docker run`) a detached (`-d`) Docker container called sklearn-flask-docker (`--name sklearn-flask-docker`) from the image `imarekkus/perceptron:latest` where port of the host machine is connected to port 3000 of the Docker container.
+Można wejść na stronę wchodząc przez dockera, ale wtedy wyświetla nam się tylko tekst, a nie predykcje
+![image](https://user-images.githubusercontent.com/49692939/168680505-c2965fc2-33ad-4abe-bb9a-b73efe10cc0c.png)
+Żeby wyświetliły się predykcję przechodzimy do kolejnego kroku
 
-`docker run -d --name sklearn-flask-docker imarekkus/perceptron:latest`
+# Wklejamy url z danymi do przeglądarki:
 
-## 4. Query the prediction API with an example observation
+http://localhost:3000/predict?sepal_length=0.3&sepal_width=3.2&petal_length=5.7&petal_width=0.8
 
-Since our model is trained on the Iris dataset, we can test the API by queries it for the predicted class for this example observation:
+# W przeglądarce powinna wyskoczyć predykcja:
+![image](https://user-images.githubusercontent.com/49692939/168679151-1a91c760-1fe8-4927-975e-af0599bfa528.png)
 
-- sepal length = 1.5
-- sepal width = 2.3
-- petal length = 1.3
-- petal width = 0.3
-
-### In Your Browser
-
-Paste this URL into your browser bar:
-
-http://localhost:3000/predict?sepal_length=1.5&sepal_width=2.3&petal_length=1.3&petal_width=0.3
-
-In your browser you should see something like this:
-```
-{"features":[1.5,2.3,1.3,0.3],"predicted_class":1}
-```
-
-`"predicted_class":1` means that the predicted class is "Iris setosa"
