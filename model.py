@@ -1,18 +1,25 @@
-# Import dependencies
+# Ładujemy moduły
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris
 import pickle
 
-# Load the dataset in a dataframe object and include only four features as mentioned
+
+
+# Ładujemy moduł iris i dane z niego
 iris=load_iris()
 df = pd.DataFrame(data = np.c_[iris['data'], iris['target']], 
                   columns=iris['feature_names']+['target'])
 
+
+
+# Tworzymy zbiory X i y 
 X = iris.data[:100]
 y = iris.target[:100]
 
-# Define Perceptron class
+
+
+# Tworzymy sieć
 
 class Perceptron:
     def __init__(self, eta=0.01, n_iter=10):
@@ -40,13 +47,18 @@ class Perceptron:
     def predict(self, X):
         return np.where(self.net_input(X) >= 0, 1, -1)
 
-# Perceptron classifier
+      
+      
+# Trenujemy model
 
 perceptron = Perceptron()
 
 perceptron.fit(X, y)
 
-# Save your model
+
+
+
+# Zapisujemy go
 
 perceptron_file = open('model.pkl', 'wb')
 pickle.dump(perceptron, perceptron_file)
