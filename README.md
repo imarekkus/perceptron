@@ -21,7 +21,7 @@ The construction of this image is defined by `Dockerfile`.
 
 ## 3. Create a container from the Docker Image
 
-Create and start (`docker run`) a detached (`-d`) Docker container called sklearn-flask-docker (`--name sklearn-flask-docker`) from the image `imarekkus/perceptron:latest` where port of the host machine is connected to port 5001 of the Docker container.
+Create and start (`docker run`) a detached (`-d`) Docker container called sklearn-flask-docker (`--name sklearn-flask-docker`) from the image `imarekkus/perceptron:latest` where port of the host machine is connected to port 3000 of the Docker container.
 
 `docker run -d --name sklearn-flask-docker imarekkus/perceptron:latest`
 
