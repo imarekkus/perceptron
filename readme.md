@@ -1,8 +1,3 @@
-Ustawiam ścieżkę w wierszu poleceń tam gdzie mam pobrane pliki i  po kolei
-
-docker build --tag zadrta .
-
-docker run -p 3000:3333 -d --name sklearn zadrta:latest
 
 # Tworzymy sieć i trenujemy ją:
 
@@ -10,11 +5,11 @@ Do tego służy plik `python model.py` który tworzy plik `model.pkl`.
 
 # Tworzymy obraz dockerowy:
 
-Na podstawie pliku `Dockerfile`. tworzymy obraz wpisując: `docker build --tag imarekkus/perceptron .` 
+Na podstawie pliku `Dockerfile`. tworzymy obraz wpisując: `docker build --tag zadrta .` 
 
 # Tworzymy kontener dockerowy:
 
-Wpisując polecenie: `docker run -d --name perceptron imarekkus/perceptron:latest`
+Wpisując polecenie: `docker run -p 3000:3333 -d --name perceptron zadrta:latest`
 
 # Sprawdzamy czy działa:
 
